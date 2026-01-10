@@ -2,7 +2,7 @@ import React from 'react'
 
 const NotFound = () => {
   return (
-    <div>NotFound</div>
+    <div className='min-h-screen bg-black text-white'>404: NotFound</div>
   )
 }
 
