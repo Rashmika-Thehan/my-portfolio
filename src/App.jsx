@@ -1,6 +1,6 @@
-import { Home } from "lucide-react"
 import { Routes, Route, BrowserRouter } from "react-router-dom"
 import NotFound from "./pages/NotFound"
+import Home from "./pages/Home.jsx"
 
 function App() {
 
