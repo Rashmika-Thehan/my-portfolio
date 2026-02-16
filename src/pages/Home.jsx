@@ -2,6 +2,8 @@ import React from 'react'
 import HeroSection from '../components/HeroSection'
 import CertificatesCarousal from '../components/CertificatesCarousal'
 import ProjectsGrid from '../components/ProjectsGrid'
+import TechStack from '../components/TechStack'
+import Contact from '../components/Contact'
 
 const Home = () => {
   return (
@@ -11,6 +13,8 @@ const Home = () => {
         <HeroSection/>
         <CertificatesCarousal/>
         <ProjectsGrid/>
+        <TechStack/>
+        <Contact/>
       </div>
     </div>
 
