@@ -148,13 +148,13 @@ export default function PortfolioHero() {
 
               {/* CTA Buttons */}
               <div className="flex flex-col sm:flex-row gap-4 pt-4">
-                <button className="group relative px-8 py-4 bg-blue-600 text-white font-semibold rounded-lg overflow-hidden transition-all duration-300 hover:bg-blue-700 hover:scale-105 hover:shadow-xl hover:shadow-blue-500/30">
+                <a href='#projects'  className="group relative px-8 py-4 bg-blue-600 text-white font-semibold rounded-lg overflow-hidden transition-all duration-300 hover:bg-blue-700 hover:scale-105 hover:shadow-xl hover:shadow-blue-500/30">
                   <span className="relative z-10">View My Work</span>
-                </button>
+                </a>
                 
-                <button className="px-8 py-4 bg-slate-800/50 backdrop-blur-sm text-white font-semibold rounded-lg border-2 border-slate-700 transition-all duration-300 hover:bg-slate-700/50 hover:border-blue-500 hover:scale-105">
+                <a href="#contact" className="px-8 py-4 bg-slate-800/50 backdrop-blur-sm text-white font-semibold rounded-lg border-2 border-slate-700 transition-all duration-300 hover:bg-slate-700/50 hover:border-blue-500 hover:scale-105">
                   Get In Touch
-                </button>
+                </a>
               </div>
 
               {/* Social links */}
@@ -163,34 +163,35 @@ export default function PortfolioHero() {
               </div>
             </div>
 
-            {/* Right column - Profile Image */}
-            <div className={`relative transition-all duration-1000 delay-300 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-10'}`}>
-              {/* Profile image container */}
-              <div className="relative w-full max-w-lg mx-auto lg:ml-auto lg:mr-0">
-                {/* Decorative rings */}
+            {/* Right column - Profile Image - Lifted up on small screens */}
+            <div className={`relative transition-all duration-1000 delay-300 -translate-y-4 sm:-translate-y-6 lg:translate-y-0 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-10'}`}>
+              {/* Profile image container - now responsive */}
+              <div className="relative w-full max-w-[250px] sm:max-w-sm md:max-w-md lg:max-w-lg mx-auto lg:ml-auto lg:mr-0">
+                {/* Decorative rings - smaller offset on mobile */}
                 <div className="absolute inset-0 rounded-full bg-linear-to-r from-blue-600 to-teal-600 animate-spin-slow opacity-15 blur-2xl" />
-                <div className="absolute -inset-4 rounded-full border-2 border-blue-500/30 animate-pulse" />
-                <div className="absolute -inset-8 rounded-full border-2 border-teal-500/20 animate-pulse animation-delay-1000" />
+                <div className="absolute -inset-2 sm:-inset-4 rounded-full border-2 border-blue-500/30 animate-pulse" />
+                <div className="absolute -inset-4 sm:-inset-8 rounded-full border-2 border-teal-500/20 animate-pulse animation-delay-1000" />
                 
                 {/* Main image placeholder */}
                 <div className="relative aspect-square rounded-full bg-linear-to-br from-blue-600 via-teal-600 to-cyan-700 p-1 animate-float">
                   <div className="w-full h-full rounded-full bg-slate-900 flex items-center justify-center overflow-hidden border-4 border-slate-800">
-                    {/* Replace with actual image */}
-                    <div className="text-9xl">
-                        <img src='../me.png' alt="Profile" />
-                    </div>
+                    <img 
+                      src='../me.png' 
+                      alt="Profile" 
+                      className="w-full h-full object-cover" // Ensures image fills circle without distortion
+                    />
                   </div>
                 </div>
 
-                {/* Floating skill badges */}
-                <div className="absolute -top-4 -right-4 bg-slate-900/90 backdrop-blur-md px-4 py-2 rounded-full border border-blue-500/50 shadow-lg shadow-blue-500/20 animate-float animation-delay-500">
-                  <span className="text-white font-semibold text-sm">React</span>
+                {/* Floating skill badges - repositioned and scaled for mobile */}
+                <div className="absolute -top-3 -right-3 sm:-top-4 sm:-right-4 bg-slate-900/90 backdrop-blur-md px-2 py-1 sm:px-4 sm:py-2 rounded-full border border-blue-500/50 shadow-lg shadow-blue-500/20 animate-float animation-delay-500">
+                  <span className="text-white font-semibold text-xs sm:text-sm">React</span>
                 </div>
-                <div className="absolute top-1/4 -left-8 bg-slate-900/90 backdrop-blur-md px-4 py-2 rounded-full border border-teal-500/50 shadow-lg shadow-teal-500/20 animate-float animation-delay-1000">
-                  <span className="text-white font-semibold text-sm">Python</span>
+                <div className="absolute top-1/4 -left-4 sm:-left-8 bg-slate-900/90 backdrop-blur-md px-2 py-1 sm:px-4 sm:py-2 rounded-full border border-teal-500/50 shadow-lg shadow-teal-500/20 animate-float animation-delay-1000">
+                  <span className="text-white font-semibold text-xs sm:text-sm">Python</span>
                 </div>
-                <div className="absolute bottom-12 -right-8 bg-slate-900/90 backdrop-blur-md px-4 py-2 rounded-full border border-cyan-500/50 shadow-lg shadow-cyan-500/20 animate-float animation-delay-1500">
-                  <span className="text-white font-semibold text-sm">Node.js</span>
+                <div className="absolute bottom-12 -right-4 sm:-right-8 bg-slate-900/90 backdrop-blur-md px-2 py-1 sm:px-4 sm:py-2 rounded-full border border-cyan-500/50 shadow-lg shadow-cyan-500/20 animate-float animation-delay-1500">
+                  <span className="text-white font-semibold text-xs sm:text-sm">Node.js</span>
                 </div>
               </div>
             </div>
