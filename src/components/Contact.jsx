@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { FaGithub, FaLinkedin, FaPhone, FaEnvelope, FaDownload, FaPaperPlane } from 'react-icons/fa';
+import emailjs from '@emailjs/browser';
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -22,15 +23,33 @@ export default function Contact() {
     setStatus('sending');
 
     try {
-      const mailtoLink = `mailto:rashmikathethan4@gmail.com?subject=${encodeURIComponent(formData.subject)}&body=${encodeURIComponent(`Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`)}`;
-      window.location.href = mailtoLink;
+      // EmailJS configuration
+      const serviceId = 'service_lroeyad';      
+      const templateId = 'template_i4q6dxg';   
+      const publicKey = 'IiaB67GsGtDwYwPVL';      
+
+      const templateParams = {
+        from_name: formData.name,
+        from_email: formData.email,
+        subject: formData.subject,
+        message: formData.message,
+        to_email: 'rashmikathethan4@gmail.com'
+      };
+
+      await emailjs.send(
+        serviceId,
+        templateId,
+        templateParams,
+        publicKey
+      );
       
       setStatus('success');
-      setTimeout(() => setStatus(''), 3000);
       setFormData({ name: '', email: '', subject: '', message: '' });
-    } catch (_error) {
+      setTimeout(() => setStatus(''), 5000);
+    } catch (error) {
+      console.error('EmailJS Error:', error);
       setStatus('error');
-      setTimeout(() => setStatus(''), 3000);
+      setTimeout(() => setStatus(''), 5000);
     }
   };
 
@@ -44,7 +63,7 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" className="relative py-12 sm:py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-slate-900 via-slate-800 to-slate-900 overflow-hidden">
+    <section id="contact" className="relative py-12 sm:py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-slate-900 via-slate-800 to-slate-900 overflow-hidden scroll-mt-20">
       {/* Background decorative elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute top-20 left-10 w-96 h-96 bg-blue-600/10 rounded-full blur-3xl" />
@@ -250,12 +269,12 @@ export default function Contact() {
               {/* Status Messages */}
               {status === 'success' && (
                 <div className="bg-green-500/10 border border-green-500/50 rounded-lg p-3 text-green-400 text-sm text-center">
-                  Message sent successfully! I'll get back to you soon.
+                  ✓ Message sent successfully! I'll get back to you soon.
                 </div>
               )}
               {status === 'error' && (
                 <div className="bg-red-500/10 border border-red-500/50 rounded-lg p-3 text-red-400 text-sm text-center">
-                  Oops! Something went wrong. Please try again.
+                  ✗ Oops! Something went wrong. Please try again.
                 </div>
               )}
             </form>

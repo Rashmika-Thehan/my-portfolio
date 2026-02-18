@@ -177,7 +177,7 @@ export default function PortfolioHero() {
                   <div className="w-full h-full rounded-full bg-slate-900 flex items-center justify-center overflow-hidden border-4 border-slate-800">
                     {/* Replace with actual image */}
                     <div className="text-9xl">
-                        <img src='../public/me.png' alt="Profile" />
+                        <img src='../me.png' alt="Profile" />
                     </div>
                   </div>
                 </div>
@@ -195,16 +195,6 @@ export default function PortfolioHero() {
               </div>
             </div>
           </div>
-        </div>
-      </div>
-
-      {/* Scroll indicator */}
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-        <div className="flex flex-col items-center gap-2 text-gray-600">
-          <span className="text-sm">Scroll Down</span>
-          <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
-          </svg>
         </div>
       </div>
 
