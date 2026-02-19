@@ -39,6 +39,11 @@ export default function CertificatesCarousel() {
       title: 'Intro to Machine Learning',
       image: '/cert7.png', 
     },
+    {
+      id: 8,
+      title: 'KodeKloud AWS Basics',
+      image: '/cert8.png', 
+    },
   ];
 
   // Duplicate certificates multiple times for truly seamless infinite scroll
