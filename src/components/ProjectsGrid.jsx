@@ -8,12 +8,12 @@ const GitHubIcon = () => (
 
 const ProjectCard = ({ project, isLarge, hoveredProject, setHoveredProject }) => (
   <div className={`
-      group relative overflow-hidden rounded-xl border border-slate-700 
+      group relative overflow-hidden rounded-lg border border-slate-700 
       hover:border-slate-600 transition-all duration-200
       bg-gradient-to-br ${project.color}
       backdrop-blur-sm shadow-xl hover:shadow-2xl
       hover:scale-[1.02] hover:-translate-y-1
-      ${project.gridArea} ${isLarge ? 'min-h-[350px] md:min-h-[400px]' : 'min-h-[280px]'}
+      ${project.gridArea} ${isLarge ? 'min-h-[300px] md:min-h-[350px]' : 'min-h-[240px]'}
     `}
     onMouseEnter={() => setHoveredProject(project.id)}
     onMouseLeave={() => setHoveredProject(null)}
@@ -35,12 +35,12 @@ const ProjectCard = ({ project, isLarge, hoveredProject, setHoveredProject }) =>
     {/* Content */}
     <div className="relative h-full flex flex-col">
       {/* Tags at top */}
-      <div className={`${isLarge ? 'p-4 md:p-6' : 'p-4'} pb-0`}>
-        <div className="flex flex-wrap gap-1.5">
+      <div className={`${isLarge ? 'p-3 md:p-4' : 'p-3'} pb-0`}>
+        <div className="flex flex-wrap gap-1">
           {project.tags.map((tag, index) => (
             <span
               key={index}
-              className="px-2.5 py-0.5 text-xs font-medium text-blue-100 bg-blue-500/40 backdrop-blur-sm rounded-full border border-blue-500/30"
+              className="px-2 py-0.5 text-[10px] font-medium text-blue-100 bg-blue-500/40 backdrop-blur-sm rounded-full border border-blue-500/30"
             >
               {tag}
             </span>
@@ -52,17 +52,17 @@ const ProjectCard = ({ project, isLarge, hoveredProject, setHoveredProject }) =>
       <div className="flex-grow" />
 
       {/* Title, Description & Links at bottom */}
-      <div className={`${isLarge ? 'p-4 md:p-6' : 'p-4'} pt-3`}>
-        <div className="space-y-2">
-          <h3 className={`${isLarge ? 'text-xl md:text-2xl' : 'text-lg md:text-xl'} font-bold text-white group-hover:text-blue-400 transition-colors duration-200`}>
+      <div className={`${isLarge ? 'p-3 md:p-4' : 'p-3'} pt-2`}>
+        <div className="space-y-1.5">
+          <h3 className={`${isLarge ? 'text-lg md:text-xl' : 'text-base md:text-lg'} font-bold text-white group-hover:text-blue-400 transition-colors duration-200`}>
             {project.title}
           </h3>
-          <p className={`text-gray-400 ${isLarge ? 'text-sm md:text-base' : 'text-xs md:text-sm'} line-clamp-2 group-hover:text-gray-300 transition-colors duration-200`}>
+          <p className={`text-gray-400 ${isLarge ? 'text-xs md:text-sm' : 'text-[11px] md:text-xs'} line-clamp-2 group-hover:text-gray-300 transition-colors duration-200`}>
             {project.description}
           </p>
 
           {/* Links */}
-          <div className="flex items-center gap-3 pt-1.5">
+          <div className="flex items-center gap-2.5 pt-1">
             <a 
               href={project.github}
               target="_blank"
@@ -81,13 +81,13 @@ const ProjectCard = ({ project, isLarge, hoveredProject, setHoveredProject }) =>
               target="_blank"
               rel="noopener noreferrer"
               className={`
-                flex items-center gap-1.5 text-blue-400 hover:text-blue-300 font-semibold text-xs
+                flex items-center gap-1 text-blue-400 hover:text-blue-300 font-semibold text-[11px]
                 transform transition-all duration-200
                 ${hoveredProject === project.id ? 'translate-y-0 opacity-100' : 'translate-y-2 opacity-0'}
               `}
             >
               <span>View Project</span>
-              <svg className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg className="w-3 h-3 group-hover:translate-x-1 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
               </svg>
             </a>
@@ -165,7 +165,7 @@ export default function ProjectsGrid() {
   ];
 
   return (
-    <section id="projects" className="relative py-12 sm:py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-slate-900 via-slate-800 to-slate-900 overflow-hidden">
+    <section id="projects" className="relative py-8 sm:py-10 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-slate-900 via-slate-800 to-slate-900 overflow-hidden scroll-mt-0">
       {/* Background decorative elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute top-20 left-10 w-96 h-96 bg-blue-600/10 rounded-full blur-3xl" />
@@ -174,17 +174,17 @@ export default function ProjectsGrid() {
 
       <div className="relative max-w-7xl mx-auto">
         {/* Section Header */}
-        <div className="text-center mb-10 sm:mb-12">
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-3">
+        <div className="text-center mb-6">
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-1.5">
             Featured <span className="text-blue-400">Projects</span>
           </h2>
-          <p className="text-gray-400 text-sm sm:text-base max-w-2xl mx-auto">
+          <p className="text-gray-400 text-xs sm:text-sm max-w-2xl mx-auto">
             A collection of my recent work and personal projects
           </p>
         </div>
 
         {/* Bento Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-3 md:gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-2.5 md:gap-3">
           {projects.map((project, index) => (
             <ProjectCard 
               key={project.id}

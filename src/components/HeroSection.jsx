@@ -1,4 +1,6 @@
 import { useState, useEffect } from 'react';
+import FuzzyText from './FuzzyText';
+
 
 const roles = ['Full Stack', 'UI/UX Designing', 'Problem Solving', 'Backend Developing'];
 
@@ -138,8 +140,10 @@ export default function PortfolioHero() {
                 <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-white leading-tight">
                   Hi There,
                   <br />
-                  {/* cSpell:ignore Rashmika Thehan */}
-                  I'm <span className="text-blue-400">Rashmika Thehan</span>
+                  <span className="flex items-center gap-3">
+                    I'm
+                    <FuzzyText className='block pt-3 text-blue-400'>Rashmika Thehan</FuzzyText>
+                  </span>
                 </h1>
                 <p className="text-2xl sm:text-3xl text-gray-400 font-light">
                   I Am Into <span aria-live="polite" className="text-teal-400 font-semibold">{roles[currentRole]}</span>
